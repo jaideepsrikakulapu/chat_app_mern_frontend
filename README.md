@@ -20,10 +20,9 @@ This is the Phase 1 submission for a real-time chat application frontend built u
 1. Clone the repository or unzip the folder
 2. Run the following commands:
 
-```bash
+
 npm install
 npm start
-
 
 # 💬 ChatApp - Real-Time Chat Application (Frontend)
 
@@ -92,4 +91,30 @@ The project solves the problem of lacking a customizable, open-source chat syste
 ---
 
 ## 📁 Folder Structure
+
+ChatApp_Frontend/
+│
+├── public/
+│ └── index.html
+│
+├── src/
+│ ├── assets/ # Static files (images, etc.)
+│ ├── components/ # Reusable components
+│ │ ├── ChatBox.jsx
+│ │ ├── UserList.jsx
+│ │ ├── MessageItem.jsx
+│ ├── pages/ # Routes/pages
+│ │ ├── Login.jsx
+│ │ ├── Register.jsx
+│ │ └── Home.jsx
+│ ├── App.jsx
+│ ├── index.js
+│ ├── styles/
+│ │ ├── chat.css
+│ │ ├── auth.css
+│ │ └── app.css
+│
+├── .gitignore
+├── package.json
+├── README.md
 
