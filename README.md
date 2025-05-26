@@ -22,6 +22,7 @@ This is the Phase 1 submission for a real-time chat application frontend built u
 
 
 npm install
+
 npm start
 
 # 💬 ChatApp - Real-Time Chat Application (Frontend)
