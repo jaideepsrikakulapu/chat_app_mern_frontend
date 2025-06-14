@@ -20,7 +20,10 @@ function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Verify if user token is valid on app load
+  // Backend API base URL from environment variable or fallback
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+
+  // Verify user token on app load
   useEffect(() => {
     const verifyAuth = async () => {
       const token = localStorage.getItem('token');
@@ -28,21 +31,23 @@ function App() {
         setLoading(false);
         return;
       }
+
       try {
-        const res = await axios.get('http://localhost:5000/api/auth/verify', {
+        const res = await axios.get(`${API_BASE_URL}/api/auth/verify`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(res.data.user);
       } catch (err) {
-        // Token invalid or expired - clear storage
+        console.error('Token verification failed:', err?.response?.data || err.message);
         localStorage.removeItem('token');
         localStorage.removeItem('username');
       } finally {
         setLoading(false);
       }
     };
+
     verifyAuth();
-  }, []);
+  }, [API_BASE_URL]);
 
   // Logout handler
   const handleLogout = useCallback(() => {
